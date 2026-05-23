@@ -1,5 +1,6 @@
 {
-	"name": "mon-port",
+	"name": "juila.el-amrani",
+	"homepage": "https://fuzzy-couscous-2q51l6q.pages.github.io/B-POR-200-REN-1-1-portfolio-1",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
@@ -9,7 +10,7 @@
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d dist --dotfiles"
 	},
 	"dependencies": {
 		"@emailjs/browser": "^4.4.1",
