@@ -1,5 +1,5 @@
 import { Box, Typography, Container, Grid, Paper, Chip } from '@mui/material';
-import PhotoHome7 from '/src/assets/PhotoHome7.jpg';
+import PhotoHome7 from '../../assets/PhotoHome7.jpg';
 
 const blue = '#133d49';
 
@@ -108,7 +108,7 @@ export default function ThisYear() {
 					<Box
 						sx={{
 							position: 'relative',
-							height: { xs: 'auto', md: '75vh' },
+							minheight: { xs: 'auto', md: '75vh' },
 							width: { xs: '95vw', md: '105vh' },
 							maxWidth: '90%',
 							display: 'flex',

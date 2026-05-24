@@ -165,7 +165,7 @@ export default function Contact() {
 					sx={inputSx}
 					/>
 
-					<Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+					<Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 2 }}>
 						<Button
 						type="submit"
 						variant="contained"

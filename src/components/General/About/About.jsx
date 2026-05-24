@@ -138,6 +138,7 @@ export default function About() {
 						>
 							<Box
 								component="img"
+								alt="Julia El Amrani"
 								src={Photo2}
 								sx={{
 									width: { xs: 180, sm: 220, md: 280 },

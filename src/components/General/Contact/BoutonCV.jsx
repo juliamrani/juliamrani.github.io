@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import CheckIcon from "@mui/icons-material/Check";
 
@@ -53,7 +53,16 @@ export default function BoutonCV() {
 				},
 			}}
 		>
-			{downloaded ? "Téléchargé !" : "Télécharger mon CV"}
+			{downloaded ? "Téléchargé !" : (
+			<>
+				<Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
+					Télécharger mon CV
+				</Box>
+				<Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
+					Mon CV
+				</Box>
+			</>
+			)}
 		</Button>
 	);
 }

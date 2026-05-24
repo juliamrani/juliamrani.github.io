@@ -1,6 +1,6 @@
 import { Box, Typography, Container, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
-import PhotoHome6 from '/src/assets/PhotoHome6.jpg';
+import PhotoHome6 from '../../../assets/PhotoHome6.jpg';
 
 export default function Name() {
 	return (
@@ -8,7 +8,7 @@ export default function Name() {
 			sx={{
 				backgroundImage: `url(${PhotoHome6})`,
 				position: 'relative',
-				height: '60vh',
+				minHeight: '60vh',
 				display: 'flex',
 				alignItems: { xs: 'flex-start', md: 'center' },
 				px: { xs: 2, md: 6 },
@@ -21,6 +21,7 @@ export default function Name() {
 				backgroundAttachment: 'scroll',
 			}}
 		>
+			
 			<Box
 				sx={{
 					position: 'absolute',
