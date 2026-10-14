@@ -1,0 +1,8 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "dev", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 5173 },
+    { "name": "etodo", "runtimeExecutable": "npm", "runtimeArgs": ["--prefix", "/home/julia-el-amrani/ProjetTech/Bach1/sem1/etodo/frontend", "run", "dev", "--", "--port", "5180"], "port": 5180 },
+    { "name": "jobagg", "runtimeExecutable": "npm", "runtimeArgs": ["--prefix", "/home/julia-el-amrani/ProjetTech/Bach1/sem2/jobAggre2/Frontend", "start", "--", "--port", "4210"], "port": 4210 }
+  ]
+}
