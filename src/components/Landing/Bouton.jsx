@@ -30,7 +30,7 @@ export default function Bouton() {
 				},
 			}}
 		>
-			Click to discover my journey
+			Dive in →
 		</Button>
 	);
 }

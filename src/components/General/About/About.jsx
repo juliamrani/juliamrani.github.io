@@ -147,29 +147,46 @@ export default function About() {
 								}}
 							/>
 
-							<Typography
-								sx={{
-									color: blue,
-									lineHeight: 1.9,
-									maxWidth: '600px',
-									textAlign: 'center',
-									fontFamily: 'Space Mono',
-									fontSize: {
-										xs: '0.9rem',
-										sm: '1rem',
-										md: '1.05rem',
-									},
-								}}
-							>
-								Curious and self-driven, I am currently studying
-								Application Development at EPITECH. I focus on
-								building modern, intuitive, and impactful
-								digital experiences. My interests include web
-								development, data, and management. Seeking to
-								grow as a developer and contribute to digital
-								products that improve user experience and solve
-								meaningful problems.
-							</Typography>
+							<Box sx={{ maxWidth: '600px', textAlign: 'center' }}>
+								<Typography
+									component="h2"
+									sx={{
+										fontFamily: 'Montserrat',
+										fontWeight: 700,
+										color: blue,
+										mb: 2,
+										fontSize: {
+											xs: '1.6rem',
+											sm: '2rem',
+											md: '2.4rem',
+										},
+									}}
+								>
+									Julia El Amrani
+								</Typography>
+								<Typography
+									sx={{
+										color: blue,
+										lineHeight: 1.9,
+										maxWidth: '600px',
+										textAlign: 'center',
+										fontFamily: 'Space Mono',
+										fontSize: {
+											xs: '0.9rem',
+											sm: '1rem',
+											md: '1.05rem',
+										},
+									}}
+								>
+									Curious and self-driven, I am a second-year student
+									at EPITECH, now specializing in Data & AI. After a
+									first year focused on web development, I now explore
+									machine learning, data analysis and LLMs, with the
+									same goal: turning complex problems into clear,
+									useful solutions. I am looking to grow as a data
+									and AI developer and contribute to products that
+									make a real impact.
+								</Typography>							</Box>
 						</Grid>
 					</Grid>
 
@@ -271,7 +288,7 @@ export default function About() {
 										Team Member
 									</Typography>
 									<Date>
-										Ginger’s New York Coffee · 2024 — 2025
+										Ginger’s New York Coffee · 2024 — 2026
 									</Date>
 
 									<Descr>

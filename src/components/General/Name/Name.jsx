@@ -68,7 +68,7 @@ export default function Name() {
 								},
 							}}
 						>
-							Julia <br /> El Amrani
+							My Portfolio
 						</Typography>
 
 						<Typography
