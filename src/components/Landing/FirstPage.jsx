@@ -96,7 +96,7 @@ export default function FirstPage() {
 				muted
 				loop
 				playsInline
-				poster="/video1-poster.jpg"
+				poster={`${import.meta.env.BASE_URL}video1-poster.jpg`}
 				aria-hidden="true"
 				style={{
 					position: 'absolute',
@@ -107,7 +107,7 @@ export default function FirstPage() {
 					zIndex: 0,
 				}}
 			>
-				<source src="/video1.webm" type="video/webm" />
+				<source src={`${import.meta.env.BASE_URL}video1.webm`} type="video/webm" />
 			</video>
 
 			{/* Plus léger au centre, plus sombre sur les bords et en bas */}
