@@ -2,7 +2,7 @@ import { Box, Toolbar } from '@mui/material';
 import Name from '../components/General/Name/Name.jsx';
 import About from '../components/General/About/About.jsx';
 import Menu from '../components/General/Menu.jsx';
-import Projects from '../components/General/Projects/projects.jsx';
+import Projects from '../components/General/Projects/Projects.jsx';
 import ThisYear from '../components/General/ThisYear.jsx';
 import Contact from '../components/General/Contact/Contact.jsx';
 
