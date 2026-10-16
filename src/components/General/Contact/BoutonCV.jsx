@@ -12,7 +12,7 @@ export default function BoutonCV() {
 	const handleDownload = () => {
 		const link = document.createElement("a");
 		link.href = `${import.meta.env.BASE_URL}cv.pdf`;
-		link.download = "CV.pdf";
+		link.download = "CV Julia El Amrani.pdf";
 		link.click();
 
 		setDownloaded(true);
