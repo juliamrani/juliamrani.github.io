@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Box, Typography, Container, Grid, Paper, Chip, Tabs, Tab } from '@mui/material';
+import { Box, Typography, Container, Grid, Paper, Chip, Tabs, Tab, Tooltip, IconButton } from '@mui/material';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import cvrieImg from '../../../assets/projects/cvrie.webp';
 import etodoImg from '../../../assets/projects/etodo.webp';
+import etodoTasksImg from '../../../assets/projects/etodo-tasks.webp';
 import jobAggregatorImg from '../../../assets/projects/jobaggregator.webp';
 
 const blue = '#133d49';
@@ -25,6 +27,8 @@ const years = [
 				tech: ['React.js', 'Material UI', 'React Router', 'HTML', 'CSS', 'Node.js', 'Express', 'MySQL', 'JWT', 'Docker', 'Nginx'],
 				image: etodoImg,
 				imageAlt: 'TaskMaster home page with the login form',
+				secondImage: etodoTasksImg,
+				secondImageAlt: 'TaskMaster task list page',
 			},
 			{
 				title: 'Hack & Juice - Cybersecurity',
@@ -102,6 +106,7 @@ const years = [
 				tech: ['Angular', 'TypeScript', 'Angular Material', 'Figma', 'WCAG 2.1', 'FastAPI', 'MongoDB', 'spaCy', 'NLTK', 'Docker'],
 				image: jobAggregatorImg,
 				imageAlt: 'JobAggregator landing page',
+				scrollImage: true,
 			},
 		],
 	},
@@ -243,9 +248,95 @@ const Descr = ({ children }) => (
 	</Typography>
 );
 
+// Aperçu affiché au survol de l'œil.
+// Une capture de page entière défile toute seule ; deux captures alternent en fondu.
+const Preview = ({ project }) => (
+	<Box sx={{ position: 'relative' }}>
+		<Box
+			component="img"
+			src={project.image}
+			alt={project.imageAlt}
+			sx={{
+				display: 'block',
+				width: '100%',
+				borderRadius: '10px',
+				...(project.scrollImage && {
+					height: { xs: 260, md: 340 },
+					objectFit: 'cover',
+					objectPosition: '50% 0%',
+					animation: 'scrollPage 9s ease 0.2s infinite alternate',
+					'@keyframes scrollPage': {
+						to: { objectPosition: '50% 100%' },
+					},
+				}),
+			}}
+		/>
+		{project.secondImage && (
+			<Box
+				component="img"
+				src={project.secondImage}
+				alt={project.secondImageAlt}
+				sx={{
+					position: 'absolute',
+					inset: 0,
+					width: '100%',
+					height: '100%',
+					borderRadius: '10px',
+					opacity: 0,
+					animation: 'switchPage 5s ease-in-out infinite',
+					'@keyframes switchPage': {
+						'0%, 18%': { opacity: 0 },
+						'28%, 85%': { opacity: 1 },
+						'100%': { opacity: 0 },
+					},
+				}}
+			/>
+		)}
+	</Box>
+);
+
+const PreviewButton = ({ project }) => (
+	<Tooltip
+		title={<Preview project={project} />}
+		placement="bottom-start"
+		enterTouchDelay={0}
+		leaveTouchDelay={6000}
+		slotProps={{
+			tooltip: {
+				sx: {
+					p: 0.75,
+					maxWidth: 'none',
+					width: { xs: '88vw', sm: 520 },
+					background: 'rgba(255,255,255,0.85)',
+					backdropFilter: 'blur(12px)',
+					border: '2px solid rgba(255, 255, 255, 0.78)',
+					borderRadius: '12px',
+					boxShadow: '0 20px 60px rgba(0, 0, 0, 0.25)',
+				},
+			},
+		}}
+	>
+		<IconButton
+			aria-label={`Preview: ${project.imageAlt}`}
+			sx={{
+				color: blue,
+				background: 'rgba(255,255,255,0.5)',
+				border: '1px solid rgba(19, 61, 73, 0.2)',
+				transition: 'all 0.3s ease',
+				'&:hover': { background: '#ffffff', transform: 'scale(1.08)' },
+			}}
+		>
+			<VisibilityOutlinedIcon />
+		</IconButton>
+	</Tooltip>
+);
+
 const ProjectCard = ({ project }) => (
 	<Box mt={16}>
-		<Title>{project.title}</Title>
+		<Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+			<Title>{project.title}</Title>
+			{project.image && <PreviewButton project={project} />}
+		</Box>
 
 		<Grid container spacing={2} mt={4}>
 			<Grid item xs={12} md={6}>
@@ -294,25 +385,6 @@ const ProjectCard = ({ project }) => (
 					<Descr>{project.learned}</Descr>
 				</GlassCard>
 			</Grid>
-
-			{project.image && (
-				<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-					<Box
-						component="img"
-						src={project.image}
-						alt={project.imageAlt}
-						loading="lazy"
-						sx={{
-							width: '100%',
-							maxWidth: 720,
-							display: 'block',
-							borderRadius: '10px',
-							border: '2px solid rgba(255, 255, 255, 0.78)',
-							boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
-						}}
-					/>
-				</Box>
-			)}
 		</Grid>
 	</Box>
 );
