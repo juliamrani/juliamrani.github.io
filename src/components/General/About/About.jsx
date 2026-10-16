@@ -25,7 +25,7 @@ export default function About() {
 					/>
 
 					<CardSection
-						title="Professionnal Experiences"
+						title="Professional Experiences"
 						items={experiences}
 						titleSize="1.1rem"
 						hoverBackground="#a6b7a2bc"

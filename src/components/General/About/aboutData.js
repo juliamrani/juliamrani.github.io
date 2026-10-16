@@ -29,6 +29,14 @@ export const education = [
 
 export const experiences = [
 	{
+		title: 'Web Developer Intern',
+		subtitle: 'VirtuoTech · June 2026',
+		lines: [
+			'Designed and built the company’s showcase website with Angular and TypeScript',
+			'Layout and responsive design for a smooth display on every screen size',
+		],
+	},
+	{
 		title: 'Team Member',
 		subtitle: 'Ginger’s New York Coffee · 2024 — 2026',
 		lines: [
@@ -37,21 +45,20 @@ export const experiences = [
 			'Inventory management and quality standards',
 		],
 	},
-	{
-		title: 'Seasonal Employee',
-		subtitle: 'Atlantique Service · 2022',
-		lines: ['Work organization and task prioritization'],
-	},
 ];
 
+// Rangées dans l'ordre : soft skills, data / IA, développement web, outils
 export const skills = [
 	'Teamwork',
 	'Adaptability',
+	'Organized',
 	'Autonomy',
-	'HTML',
-	'CSS',
+	'Python',
+	'Pandas',
+	'Scikit-learn',
+	'SQL',
 	'React',
 	'Angular',
+	'TypeScript',
 	'Git',
-	'SQL',
 ];
