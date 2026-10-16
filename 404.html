@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script>
+		// Redirection pour une application React sur GitHub Pages (spa-github-pages).
+		// Sur juliamrani.github.io, le site est dans /portfolio/ : on garde ce premier segment.
+		var l = window.location;
+		var pathSegmentsToKeep = l.hostname === 'juliamrani.github.io' ? 1 : 0;
+		l.replace(
+			l.protocol + '//' + l.host +
+			l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+			l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+			(l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+			l.hash
+		);
+	</script>
+</head>
+
+<body></body>
+
+</html>
