@@ -20,7 +20,8 @@ export default function Name() {
 				justifyContent: 'center',
 				backgroundSize: 'cover',
 				backgroundPosition: {
-					xs: 'center bottom',
+					// Sur mobile, on cale la photo à gauche, du côté de la mer
+					xs: 'left center',
 					md: 'center 70%',
 				},
 				backgroundAttachment: 'scroll',
