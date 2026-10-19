@@ -8,7 +8,9 @@ export default function Menu() {
 		lineHeight: 0.9,
 		letterSpacing: '-0.01em',
 		textTransform: 'none',
-		whiteSpace: 'nowrap',
+		// Sur mobile, un titre trop long (« My Journey ») passe sur deux lignes au lieu d'être coupé
+		whiteSpace: { xs: 'normal', sm: 'nowrap' },
+		textAlign: 'left',
 		background: 'none',
 		padding: 0,
 		minWidth: 0,
@@ -47,8 +49,8 @@ export default function Menu() {
 					Projects
 				</Button>
 
-				<Button component="a" href="#vision" sx={buttonStyle}>
-					This Year
+				<Button component="a" href="#journey" sx={buttonStyle}>
+					My Journey
 				</Button>
 
 				<Button component="a" href="#contact" sx={buttonStyle}>

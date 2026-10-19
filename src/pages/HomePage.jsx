@@ -3,7 +3,7 @@ import Name from '../components/General/Name/Name.jsx';
 import About from '../components/General/About/About.jsx';
 import Menu from '../components/General/Menu.jsx';
 import Projects from '../components/General/Projects/Projects.jsx';
-import ThisYear from '../components/General/ThisYear.jsx';
+import Journey from '../components/General/Journey/Journey.jsx';
 import Contact from '../components/General/Contact/Contact.jsx';
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
 				<Menu />
 				<About />
 				<Projects />
-				<ThisYear />
+				<Journey />
 				<Contact />
 			</Box>
 		</Box>
