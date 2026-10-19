@@ -4,8 +4,6 @@ import DownloadIcon from "@mui/icons-material/Download";
 import CheckIcon from "@mui/icons-material/Check";
 
 
-const blue = "#133d49";
-
 export default function BoutonCV() {
 	const [downloaded, setDownloaded] = useState(false);
 
@@ -53,13 +51,13 @@ export default function BoutonCV() {
 				},
 			}}
 		>
-			{downloaded ? "Téléchargé !" : (
+			{downloaded ? "Downloaded!" : (
 			<>
 				<Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
-					Télécharger mon CV
+					Download my CV
 				</Box>
 				<Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
-					Mon CV
+					My CV
 				</Box>
 			</>
 			)}

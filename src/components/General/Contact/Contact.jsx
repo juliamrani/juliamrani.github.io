@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useForm, ValidationError } from '@formspree/react';
 import { Box, Typography, Container, TextField, Button, Paper, Snackbar, Alert } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import BoutonCV from "./BoutonCV";
-
-const blue = "#133d49";
+import ContactLinks from "./ContactLinks";
+import SectionTitle from "../common/SectionTitle";
+import { blue } from "../common/theme";
 
 const GlassCard = ({ children }) => (
 	<Paper
@@ -53,60 +53,48 @@ export default function Contact() {
 		message: "",
 	});
 
-	const [open, setOpen] = useState(false);
+	// « sent » : message envoyé, « error » : échec de l'envoi
+	const [status, setStatus] = useState(null);
+	const [sending, setSending] = useState(false);
 
 	const handleChange = (e) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
 	};
 
 	const handleSubmit = async (e) => {
-	e.preventDefault();
+		e.preventDefault();
+		setSending(true);
 
-	try {
-		const formData = new FormData();
-		formData.append("name", form.name);
-		formData.append("email", form.email);
-		formData.append("message", form.message);
+		try {
+			const formData = new FormData();
+			formData.append("name", form.name);
+			formData.append("email", form.email);
+			formData.append("message", form.message);
 
-		const response = await fetch("https://formspree.io/f/maqkebyo", {
-		method: "POST",
-		headers: {
-			Accept: "application/json",
-		},
-		body: formData,
-		});
+			const response = await fetch("https://formspree.io/f/maqkebyo", {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+				},
+				body: formData,
+			});
 
-		const data = await response.json();
-
-		console.log("Formspree response:", data);
-
-		if (response.ok) {
-		setOpen(true);
-		setForm({ name: "", email: "", message: "" });
-		} else {
-		console.error("Erreur :", data);
+			if (response.ok) {
+				setStatus("sent");
+				setForm({ name: "", email: "", message: "" });
+			} else {
+				setStatus("error");
+			}
+		} catch {
+			setStatus("error");
+		} finally {
+			setSending(false);
 		}
-	} catch (error) {
-		console.error("Erreur :", error);
-	}
 	};
 
 	return (
 		<Box id="contact" sx={{ mb: 0}}>
-			<Typography
-			sx={{
-				display: "flex",
-				justifyContent: "center",
-				fontFamily: "Montserrat",
-				fontWeight: 800,
-				mt: 20,
-				px: 14,
-				color: "#11313a",
-				fontSize: { xs: "3.5rem", sm: "5rem", md: "7rem" },
-			}}
-			>
-			Contact
-			</Typography>
+			<SectionTitle sx={{ mt: 20, px: { xs: 2, md: 14 } }}>Contact</SectionTitle>
 
 			<Box sx={{ py: 4}}>
 			<Container maxWidth="sm">
@@ -123,7 +111,8 @@ export default function Contact() {
 					mb: 6,
 				}}
 				>
-				Don't hesitate to send me a message !
+				Looking for an intern for 4 months from April 2027, or just want
+				to talk about data and AI? Send me a message!
 				</Typography>
 
 				<GlassCard>
@@ -169,6 +158,7 @@ export default function Contact() {
 						<Button
 						type="submit"
 						variant="contained"
+						disabled={sending}
 						endIcon={<SendIcon />}
 						sx={{
 							fontFamily: "'Bungee', cursive",
@@ -186,30 +176,38 @@ export default function Contact() {
 								background: 'linear-gradient( #0e4c6d, #064057)',
 								boxShadow: "0 8px 24px rgba(19, 61, 73, 0.25)",
 							},
+							"&.Mui-disabled": {
+								color: "#ffffff",
+								opacity: 0.7,
+							},
 						}}
 						>
-						Send
+						{sending ? "Sending..." : "Send"}
 						</Button>
 
 						<BoutonCV />
 					</Box>
 				</Box>
 				</GlassCard>
+
+				<ContactLinks />
 			</Container>
 			</Box>
 
 			<Snackbar
-			open={open}
-			autoHideDuration={4000}
-			onClose={() => setOpen(false)}
+			open={status !== null}
+			autoHideDuration={5000}
+			onClose={() => setStatus(null)}
 			anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
 			>
 				<Alert
-					onClose={() => setOpen(false)}
-					severity="success"
+					onClose={() => setStatus(null)}
+					severity={status === "error" ? "error" : "success"}
 					sx={{ fontFamily: "Space Mono", borderRadius: "8px" }}
 				>
-					Message sent successfully!
+					{status === "error"
+						? "Something went wrong, your message was not sent. Please try again or email me directly."
+						: "Message sent successfully!"}
 				</Alert>
 			</Snackbar>
 		</Box>
