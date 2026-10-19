@@ -33,7 +33,7 @@ export default function ContactLinks() {
 				<Link
 					key={link.href}
 					href={link.href}
-					underline="hover"
+					underline="none"
 					{...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
 					sx={{
 						display: "flex",
@@ -43,8 +43,12 @@ export default function ContactLinks() {
 						fontFamily: "Space Mono",
 						fontSize: { xs: "0.85rem", sm: "0.95rem" },
 						textUnderlineOffset: "3px",
-						transition: "color 0.3s ease",
-						"&:hover": { color: "#226c67" },
+						transition: "transform 0.3s ease, text-shadow 0.3s ease",
+						// Au survol : le lien se soulève légèrement, sans changer de couleur
+						"&:hover": {
+							transform: "translateY(-3px)",
+							textShadow: "0 6px 14px rgba(19, 61, 73, 0.25)",
+						},
 					}}
 				>
 					{link.icon}

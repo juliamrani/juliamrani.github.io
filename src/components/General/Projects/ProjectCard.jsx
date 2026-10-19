@@ -31,10 +31,7 @@ export default function ProjectCard({ project }) {
 
 			<Grid container spacing={2} mt={4}>
 				<Grid item xs={12} md={6}>
-					<GlassCard
-						hoverBackground="rgba(251, 220, 244, 0.47)"
-						hoverBorder="rgb(179, 148, 170)"
-					>
+					<GlassCard>
 						<TechBadges tech={project.tech} />
 
 						<CardSubtitle sx={{ mt: 2 }}>

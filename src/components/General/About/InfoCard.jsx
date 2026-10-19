@@ -5,9 +5,9 @@ import { CardSubtitle, CardLabel, CardText } from '../common/CardTypography';
 import { blue } from '../common/theme';
 
 // Carte d'une formation ou d'une expérience : nom, dates, intertitre optionnel, liste de points
-export default function InfoCard({ item, titleSize, hoverBackground, hoverBorder }) {
+export default function InfoCard({ item, titleSize }) {
 	return (
-		<GlassCard hoverBackground={hoverBackground} hoverBorder={hoverBorder}>
+		<GlassCard>
 			<Typography
 				fontWeight={700}
 				fontSize={titleSize}

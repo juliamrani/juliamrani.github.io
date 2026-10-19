@@ -20,16 +20,12 @@ export default function About() {
 						title="Academic Background"
 						items={education}
 						titleSize="1.2rem"
-						hoverBackground="#ebead2bc"
-						hoverBorder="#a49f5c"
 					/>
 
 					<CardSection
 						title="Professional Experiences"
 						items={experiences}
 						titleSize="1.1rem"
-						hoverBackground="#a6b7a2bc"
-						hoverBorder="#4c6d44bc"
 					/>
 
 					<Skills />

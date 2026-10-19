@@ -3,7 +3,7 @@ import { CardTitle } from '../common/CardTypography';
 import InfoCard from './InfoCard';
 
 // Sous-section avec un titre et des cartes deux par deux (formations, expériences)
-export default function CardSection({ title, items, titleSize, hoverBackground, hoverBorder }) {
+export default function CardSection({ title, items, titleSize }) {
 	return (
 		<Box mt={16}>
 			<CardTitle>{title}</CardTitle>
@@ -14,8 +14,6 @@ export default function CardSection({ title, items, titleSize, hoverBackground, 
 						<InfoCard
 							item={item}
 							titleSize={titleSize}
-							hoverBackground={hoverBackground}
-							hoverBorder={hoverBorder}
 						/>
 					</Grid>
 				))}
