@@ -11,9 +11,8 @@ export const education = [
 		subtitle: '2025 — 2028 · Bachelor in Application Development',
 		label: 'Project-based learning',
 		lines: [
-			'Learning through projects that solve real-world problems, emphasizing technical skill, adaptability, and continuous growth.',
-			'Building strong foundations in software engineering, web technologies, and collaborative development, while enhancing critical thinking and scalable solutions.',
-			'Seeking to grow as a developer and contribute to digital products that improve user experience and solve meaningful problems.',
+			'Learning through real-world projects, with a Data & AI specialization from the second year.',
+			'Strong foundations in software engineering, web development and teamwork.',
 		],
 	},
 	{

@@ -49,23 +49,22 @@ export const years = [
 			{
 				title: 'Alice in Wonderland – NLP Engine (Natural Language Processing)',
 				description:
-					'Development of a Command Line Interface (CLI) NLP engine that analyzes books from Project Gutenberg to generate synthetic "book cards" for publishers and editors.',
+					'A command-line NLP engine that analyzes Project Gutenberg books to generate "book cards" for publishers.',
 				contribution: [
 					{
-						label: 'Lexical Diversity Measurements:',
-						text: 'Implemented the module assessing the richness of an author’s vocabulary by calculating key metrics (tokens, unique types, hapax legomena, TTR ratio, average word length).',
+						label: 'Lexical diversity:',
+						text: 'measured vocabulary richness (unique words, hapax, TTR, word length).',
 					},
 					{
-						label: 'Book Summarization:',
-						text: 'Developed the text condensation pipeline, exploring and justifying the trade-offs between extractive and lightweight abstractive methods.',
+						label: 'Summarization:',
+						text: 'built the summary pipeline, comparing extractive and abstractive methods.',
 					},
 					{
-						label: 'Technical Documentation:',
-						text: 'Authored the complete project documentation and designed diagrams illustrating the main stages of the NLP pipelines.',
+						label: 'Documentation:',
+						text: 'wrote the project documentation and pipeline diagrams.',
 					},
 				],
-				learned:
-					'I learned how to process raw text into structured data using Python/NLP tools and I acquired documentation habits, how to clearly justify a choice.',
+				learned: 'Turning raw text into structured data with Python, and clearly justifying technical choices.',
 				tech: ['Python', 'NLP', 'CLI'],
 			},
 			{
@@ -89,23 +88,22 @@ export const years = [
 			{
 				title: 'Job Aggregator – Job Platform',
 				description:
-					'Design and development of a complete job aggregator platform collecting external offers, standardizing data, and helping users make better career decisions — built in partnership with WeLoveDevs, a real-world tech hiring platform.',
+					'A job platform that collects and standardizes offers, built in partnership with WeLoveDevs.',
 				contribution: [
 					{
-						label: 'UI/UX & Prototyping:',
-						text: 'Designed the full visual identity and user interface on Figma, covering key flows including registration, offer search, offer details, and the admin dashboard, with a focus on WCAG 2.1 accessibility compliance.',
+						label: 'UI/UX:',
+						text: 'designed the interface on Figma (search, offer details, admin dashboard) following WCAG 2.1.',
 					},
 					{
-						label: 'Frontend Development:',
-						text: 'Built the responsive frontend in Angular, implementing the user dashboard, offer search and filtering, offer detail pages, and the admin moderation interface, connected to the REST backend API.',
+						label: 'Frontend:',
+						text: 'built the responsive Angular frontend connected to the REST API.',
 					},
 					{
-						label: 'Business Documentation:',
-						text: 'Led the product and market discovery phase, writing the market analysis, defining the value proposition and identifying user pain points.',
+						label: 'Business:',
+						text: 'wrote the market analysis and the value proposition.',
 					},
 				],
-				learned:
-					'I learned to bridge product thinking with technical execution, from translating user needs into wireframes and accessible interfaces, to documenting choices in a professional format. This project strengthened my ability to work across the full product lifecycle within a multidisciplinary team.',
+				learned: 'Bridging product thinking and code, and working across the full product lifecycle in a team.',
 				tech: ['Angular', 'TypeScript', 'Angular Material', 'Figma', 'WCAG 2.1', 'FastAPI', 'MongoDB', 'spaCy', 'NLTK', 'Docker'],
 				image: jobAggregatorImg,
 				imageAlt: 'JobAggregator landing page',
@@ -119,13 +117,11 @@ export const years = [
 		projects: [
 			{
 				title: 'Dr CVRIE - Machine Learning',
-				description:
-					'A medical AI assistant combining image classification and unsupervised clustering of patient data.',
+				description: 'A medical AI assistant combining image classification and patient clustering.',
 				contribution: [
-					'Worked in a pair and owned the unsupervised part: grouping 15,000 unlabeled patients into diabetes risk levels (Low, Medium, High).',
-					'Built the preprocessing pipeline: missing values, encoding and normalization (StandardScaler).',
-					'Compared K-Means and Agglomerative Clustering (silhouette score) and mapped clusters to risk levels using blood sugar and HbA1c.',
-					'Validated the results with an unseen variable (family history) and visualized the clusters with PCA.',
+					'In a pair, owned the unsupervised part: grouping 15,000 unlabeled patients into diabetes risk levels.',
+					'Built the preprocessing pipeline and compared K-Means with Agglomerative Clustering.',
+					'Validated the results with an unseen variable and visualized the clusters with PCA.',
 				],
 				learned: 'Evaluating a model without labels, and choosing what is useful over the best score.',
 				tech: ['Python', 'Scikit-learn', 'K-Means', 'Agglomerative Clustering', 'PCA', 'Pandas', 'NumPy', 'Matplotlib', 'JupyterLab'],
@@ -135,11 +131,10 @@ export const years = [
 			{
 				title: 'Codename - LLM Security & Prompt Engineering',
 				description:
-					'Hardening a local LLM agent against prompt injection, and building attacks to extract secrets from other agents.',
+					'Hardening a local LLM agent against prompt injection, and attacking other agents to extract their secrets.',
 				contribution: [
-					'Carried out the project solo.',
-					'Secured an Ollama agent (granite3.1-moe:3b) with a system prompt that only reveals the codeword on the exact password and blocks indirect extraction, roleplay and instruction overrides.',
-					'Tuned the Modelfile (temperature, top_k/top_p, seed, max length, stop sequences) as an extra security layer.',
+					'Solo project: secured an Ollama agent with a system prompt that only reveals its codeword on the exact password.',
+					'Tuned the Modelfile (temperature, sampling, length, stop sequences) as an extra security layer.',
 					'Built five attack prompts, each using a different technique, tested against unknown agents.',
 				],
 				learned: 'LLM security from both sides, and balancing security with usability.',
