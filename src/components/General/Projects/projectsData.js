@@ -2,14 +2,19 @@ import cvrieImg from '../../../assets/projects/cvrie.webp';
 import etodoImg from '../../../assets/projects/etodo.webp';
 import etodoTasksImg from '../../../assets/projects/etodo-tasks.webp';
 import jobAggregatorImg from '../../../assets/projects/jobaggregator.webp';
+import tardisChart1 from '../../../assets/projects/tardis-1.webp';
+import tardisChart2 from '../../../assets/projects/tardis-2.webp';
+import tardisChart3 from '../../../assets/projects/tardis-3.webp';
 
 // Contenu des projets par année
 
 // Champs d'un projet :
 // - title, badges de techno, description, contribution, learned 
+// - team (optionnel) : « Solo project », « Pair project »…
 // - image, imageAlt (optionnel) : aperçu affiché au survol de l'œil
 // - scrollImage (optionnel) : true si l'image est une page entière qui doit défiler
 // - secondImage, secondImageAlt (optionnel) : deuxième capture qui alterne avec la première
+// - gallery (optionnel) : liste d'images qui s'enchaînent dans l'aperçu (décrites par imageAlt)
 
 export const years = [
 	{
@@ -35,6 +40,7 @@ export const years = [
 			},
 			{
 				title: 'Hack & Juice - Cybersecurity',
+				team: 'Solo project',
 				description:
 					'Practical computer security project focused on discovering, exploiting, and documenting application vulnerabilities through the OWASP Juice Shop platform.',
 				contribution: [
@@ -68,6 +74,22 @@ export const years = [
 				tech: ['Python', 'NLP', 'CLI'],
 			},
 			{
+				title: 'Tardis - Train Delay Prediction',
+				team: 'Team of 3',
+				description:
+					'Analyzing historical SNCF train delay data to predict delays, with a regression model and an interactive Streamlit dashboard. Our Random Forest cut the prediction error by 20% compared to the baseline.',
+				contribution: [
+					'Owned the data cleaning and exploratory analysis notebook: duplicates, missing values, type conversions and the cleaned dataset used by the model.',
+					'Engineered new features (year, month, and a flag for trains more than 15 minutes late) and removed negative delays that made no sense.',
+					'Built the visualizations (delay distribution, delays by month, top 10 stations with the highest delays) and wrote an interpretation for each one.',
+				],
+				learned:
+					'The quality of a model starts with the quality of its data, and every chart needs a clear interpretation to be useful.',
+				tech: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Streamlit', 'Jupyter', 'Ruff'],
+				gallery: [tardisChart1, tardisChart2, tardisChart3],
+				imageAlt: 'My Tardis charts: delay distribution, delays by month and stations with the highest delays',
+			},
+			{
 				title: 'ELIZA – Intelligent Chatbot & Marketing Strategy',
 				description:
 					'Design of an intelligent conversational agent (chatbot) responding to a real business need to optimize company processes.',
@@ -87,6 +109,7 @@ export const years = [
 			},
 			{
 				title: 'Job Aggregator – Job Platform',
+				team: 'With WeLoveDevs',
 				description:
 					'A job platform that collects and standardizes offers, built in partnership with WeLoveDevs.',
 				contribution: [
@@ -117,6 +140,7 @@ export const years = [
 		projects: [
 			{
 				title: 'Dr CVRIE - Machine Learning',
+				team: 'Pair project',
 				description: 'A medical AI assistant combining image classification and patient clustering.',
 				contribution: [
 					'In a pair, owned the unsupervised part: grouping 15,000 unlabeled patients into diabetes risk levels.',
@@ -130,6 +154,7 @@ export const years = [
 			},
 			{
 				title: 'Codename - LLM Security & Prompt Engineering',
+				team: 'Solo project',
 				description:
 					'Hardening a local LLM agent against prompt injection, and attacking other agents to extract their secrets.',
 				contribution: [
@@ -142,6 +167,7 @@ export const years = [
 			},
 			{
 				title: '2D Game - Object-Oriented Programming in Java',
+				team: 'Team of 3',
 				description: 'A 2D game in Java, from the Game Design Document to a playable demo.',
 				contribution: [
 					'In a team of three, owned the item system (common, uncommon, rare) with stackable effects and diminishing returns.',
@@ -150,6 +176,19 @@ export const years = [
 				],
 				learned: 'How a game is structured, and writing modular code that fits with teammates’ work.',
 				tech: ['Java', 'OOP', 'Design patterns', 'UML', 'JaCoCo', 'Javadoc', 'Markdown'],
+			},
+			{
+				title: 'Start Trek - Reinforcement Learning',
+				team: 'Pair project',
+				description:
+					'Training an agent to land a spacecraft in the Lunar Lander environment with reinforcement learning, starting from Q-learning on a simple taxi game.',
+				contribution: [
+					'Taking charge of the Deep Q-Network (DQN): replacing the Q-table with a neural network so the agent can handle a continuous state space.',
+					'Starting with a Q-learning agent on the Taxi environment to master the basics: rewards, exploration vs exploitation and training curves.',
+				],
+				learned:
+					'How an agent learns by trial and error, and why a table is no longer enough when the environment gets complex.',
+				tech: ['Python', 'PyTorch', 'Gymnasium', 'NumPy', 'Matplotlib', 'Jupyter'],
 			},
 		],
 	},

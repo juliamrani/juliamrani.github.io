@@ -2,9 +2,61 @@ import { Box, Tooltip, IconButton } from '@mui/material';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { blue } from '../common/theme';
 
+// Plusieurs images qui s'enchaînent en fondu (par exemple des graphiques)
+const SLIDE_TIME = 3.5;
+const FADE_TIME = 0.6;
+
+const Gallery = ({ images, alt }) => {
+	const total = images.length * SLIDE_TIME;
+	const fade = (FADE_TIME / total) * 100;
+	const shown = 100 / images.length;
+
+	return (
+		<Box
+			role="img"
+			aria-label={alt}
+			sx={{
+				position: 'relative',
+				height: { xs: 220, md: 300 },
+				borderRadius: '10px',
+				overflow: 'hidden',
+				background: '#ffffff',
+			}}
+		>
+			{images.map((src, i) => (
+				<Box
+					key={src}
+					component="img"
+					src={src}
+					alt=""
+					sx={{
+						position: 'absolute',
+						inset: 0,
+						width: '100%',
+						height: '100%',
+						objectFit: 'contain',
+						p: 1,
+						boxSizing: 'border-box',
+						animation: `gallerySlide ${total}s ease-in-out ${i * SLIDE_TIME}s infinite both`,
+						'@keyframes gallerySlide': {
+							'0%': { opacity: 0 },
+							[`${fade}%`]: { opacity: 1 },
+							[`${shown}%`]: { opacity: 1 },
+							[`${shown + fade}%`]: { opacity: 0 },
+							'100%': { opacity: 0 },
+						},
+					}}
+				/>
+			))}
+		</Box>
+	);
+};
+
 // Aperçu affiché au survol de l'œil
 // Une capture de page + défilemment
-const Preview = ({ project }) => (
+const Preview = ({ project }) => project.gallery ? (
+	<Gallery images={project.gallery} alt={project.imageAlt} />
+) : (
 	<Box sx={{ position: 'relative' }}>
 		<Box
 			component="img"

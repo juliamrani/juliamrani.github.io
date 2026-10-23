@@ -3,7 +3,8 @@ import { Box, Typography, Container, TextField, Button, Paper, Snackbar, Alert }
 import SendIcon from "@mui/icons-material/Send";
 import BoutonCV from "./BoutonCV";
 import ContactLinks from "./ContactLinks";
-import SectionTitle from "../common/SectionTitle";
+import SectionHeader from "../common/SectionHeader";
+import Reveal from "../common/Reveal";
 import { blue } from "../common/theme";
 
 const GlassCard = ({ children }) => (
@@ -11,10 +12,11 @@ const GlassCard = ({ children }) => (
 		elevation={0}
 		sx={{
 			p: { xs: 3, sm: 5 },
-			background: "rgba(255,255,255,0.6)",
-			backdropFilter: "blur(12px)",
-			border: "2px solid rgba(255, 255, 255, 0.78)",
-			borderRadius: "10px"
+			background: "rgba(255, 255, 255, 0.7)",
+			backdropFilter: "blur(14px)",
+			border: "1px solid rgba(255, 255, 255, 0.8)",
+			borderRadius: "20px",
+			boxShadow: "0 30px 70px rgba(17, 49, 58, 0.25)",
 		}}
 	>
 	{children}
@@ -93,28 +95,33 @@ export default function Contact() {
 	};
 
 	return (
-		<Box id="contact" sx={{ mb: 0}}>
-			<SectionTitle sx={{ mt: 20, px: { xs: 2, md: 14 } }}>Contact</SectionTitle>
-
-			<Box sx={{ py: 4}}>
-			<Container maxWidth="sm">
-				<Typography
-				sx={{
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "center",
-					color: blue,
-					lineHeight: 1.9,
-					fontSize: { xs: "0.9rem", sm: "1rem", md: "1.05rem" },
-					textAlign: "center",
-					fontFamily: "Space Mono",
-					mb: 6,
-				}}
+		<Box id="contact" component="section" sx={{ py: { xs: 10, md: 14 } }}>
+			<Container maxWidth="lg">
+				<Box
+					sx={{
+						display: "grid",
+						gridTemplateColumns: { xs: "1fr", md: "5fr 7fr" },
+						gap: { xs: 6, md: 8 },
+						alignItems: "start",
+					}}
 				>
-				Looking for an intern for 4 months from April 2027, or just want
-				to talk about data and AI? Send me a message!
-				</Typography>
+					<Box>
+						<SectionHeader
+							number="04"
+							label="Contact"
+							title="Let's talk"
+							subtitle="Looking for an intern for 4 months from April 2027, a work-study student from September 2027, or just want to talk about data and AI? Send me a message!"
+							light
+						/>
+						<Reveal delay={0.1}>
+							<ContactLinks />
+							<Box sx={{ mt: 4 }}>
+								<BoutonCV />
+							</Box>
+						</Reveal>
+					</Box>
 
+					<Reveal delay={0.15}>
 				<GlassCard>
 				<Box
 					component="form"
@@ -154,7 +161,7 @@ export default function Contact() {
 					sx={inputSx}
 					/>
 
-					<Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 2 }}>
+					<Box>
 						<Button
 						type="submit"
 						variant="contained"
@@ -184,15 +191,12 @@ export default function Contact() {
 						>
 						{sending ? "Sending..." : "Send"}
 						</Button>
-
-						<BoutonCV />
 					</Box>
 				</Box>
 				</GlassCard>
-
-				<ContactLinks />
+					</Reveal>
+				</Box>
 			</Container>
-			</Box>
 
 			<Snackbar
 			open={status !== null}

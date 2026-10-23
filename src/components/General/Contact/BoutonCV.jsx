@@ -2,16 +2,14 @@ import { useState } from "react";
 import { Box, Button } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import CheckIcon from "@mui/icons-material/Check";
+import { downloadCv } from "../common/downloadCv";
 
 
 export default function BoutonCV() {
 	const [downloaded, setDownloaded] = useState(false);
 
 	const handleDownload = () => {
-		const link = document.createElement("a");
-		link.href = `${import.meta.env.BASE_URL}cv.pdf`;
-		link.download = "CV Julia El Amrani.pdf";
-		link.click();
+		downloadCv();
 
 		setDownloaded(true);
 		setTimeout(() => setDownloaded(false), 3000);

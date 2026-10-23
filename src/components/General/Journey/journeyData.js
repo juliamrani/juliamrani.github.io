@@ -37,8 +37,8 @@ export const steps = [
 	},
 	{
 		period: 'Next',
-		title: 'Looking for an internship',
-		text: 'I am looking for a 4-month internship starting in April 2027.',
+		title: 'Looking for an internship and a work-study position',
+		text: 'I am looking for a 4-month internship starting in April 2027, then a work-study position (alternance) from September 2027 to complete the final year of my bachelor’s degree.',
 		contactLink: true,
 	},
 ];

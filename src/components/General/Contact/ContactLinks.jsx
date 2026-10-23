@@ -1,7 +1,6 @@
 import { Box, Link } from "@mui/material";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { blue } from "../common/theme";
 
 // Liens directs sous le formulaire, pour me contacter sans passer par le formulaire
 const links = [
@@ -23,10 +22,9 @@ export default function ContactLinks() {
 		<Box
 			sx={{
 				display: "flex",
-				flexWrap: "wrap",
-				justifyContent: "center",
-				gap: { xs: 2, sm: 4 },
-				mt: 5,
+				flexDirection: "column",
+				alignItems: "flex-start",
+				gap: 2,
 			}}
 		>
 			{links.map((link) => (
@@ -39,15 +37,15 @@ export default function ContactLinks() {
 						display: "flex",
 						alignItems: "center",
 						gap: 1,
-						color: blue,
+						color: "#ffffff",
 						fontFamily: "Space Mono",
-						fontSize: { xs: "0.85rem", sm: "0.95rem" },
+						fontSize: { xs: "0.9rem", sm: "1rem" },
 						textUnderlineOffset: "3px",
 						transition: "transform 0.3s ease, text-shadow 0.3s ease",
 						// Au survol : le lien se soulève légèrement, sans changer de couleur
 						"&:hover": {
 							transform: "translateY(-3px)",
-							textShadow: "0 6px 14px rgba(19, 61, 73, 0.25)",
+							textShadow: "0 6px 14px rgba(0, 0, 0, 0.3)",
 						},
 					}}
 				>

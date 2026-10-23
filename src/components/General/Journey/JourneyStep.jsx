@@ -36,8 +36,8 @@ export default function JourneyStep({ step, isLast }) {
 					p: { xs: 3, md: 4 },
 					background: 'rgba(255, 255, 255, 0.38)',
 					backdropFilter: 'blur(12px)',
-					border: '2px solid rgba(255, 255, 255, 0.41)',
-					borderRadius: '10px',
+					border: '1px solid rgba(255, 255, 255, 0.5)',
+					borderRadius: '16px',
 				}}
 			>
 				<Typography

@@ -6,3 +6,13 @@ body,
 	scroll-behavior: smooth;
 	min-height: 100vh;
 }
+
+/* Laisse la place à la barre de navigation quand on clique sur un lien vers une section */
+html {
+	scroll-padding-top: 96px;
+}
+
+::selection {
+	background: #8cb8b5;
+	color: #11313a;
+}

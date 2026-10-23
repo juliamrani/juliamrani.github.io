@@ -4,7 +4,7 @@ import { blue } from '../common/theme';
 // Onglets « 1st year · Web » / « 2nd year · Data & AI »
 export default function YearTabs({ years, value, onChange }) {
 	return (
-		<Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
+		<Box sx={{ display: 'flex', mb: 5 }}>
 			<Tabs
 				value={value}
 				onChange={(_, newValue) => onChange(newValue)}

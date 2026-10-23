@@ -1,74 +1,57 @@
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Photo2 from '/src/assets/Photo2.png';
-import { blue } from '../common/theme';
+import { blue, darkBlue } from '../common/theme';
 import { intro } from './aboutData';
 
 // Photo, nom et texte de présentation
 export default function AboutIntro() {
 	return (
-		<Grid>
-			<Grid
-				xs={12}
-				md={8}
+		// Photo et texte côte à côte sur écran moyen, l'un sous l'autre sur grand écran (colonne) et sur mobile
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: { xs: 'column', sm: 'row', md: 'column' },
+				alignItems: { xs: 'flex-start', sm: 'center', md: 'flex-start' },
+				gap: { xs: 4, sm: 5, md: 4 },
+			}}
+		>
+			<Box
+				component="img"
+				alt={intro.name}
+				src={Photo2}
 				sx={{
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'space-between',
-					py: 3,
-					px: 8,
-					gap: 6,
-					flexDirection: 'column',
-					'@media (min-width:816px)': {
-						flexDirection: 'row',
-					},
+					display: 'block',
+					flexShrink: 0,
+					width: { xs: 200, md: 260 },
+					borderRadius: '20px',
+					boxShadow: '0 20px 50px rgba(17, 49, 58, 0.3)',
 				}}
-			>
-				<Box
-					component="img"
-					alt={intro.name}
-					src={Photo2}
-					sx={{
-						width: { xs: 180, sm: 220, md: 280 },
-						borderRadius: '10px',
-						boxShadow: '0 15px 40px rgba(0,0,0,0.5)',
-					}}
-				/>
+			/>
 
-				<Box sx={{ maxWidth: '600px', textAlign: 'center' }}>
-					<Typography
-						component="h2"
-						sx={{
-							fontFamily: 'Montserrat',
-							fontWeight: 700,
-							color: blue,
-							mb: 2,
-							fontSize: {
-								xs: '1.6rem',
-								sm: '2rem',
-								md: '2.4rem',
-							},
-						}}
-					>
-						{intro.name}
-					</Typography>
-					<Typography
-						sx={{
-							color: blue,
-							lineHeight: 1.9,
-							maxWidth: '600px',
-							textAlign: 'center',
-							fontFamily: 'Space Mono',
-							fontSize: {
-								xs: '0.9rem',
-								sm: '1rem',
-								md: '1.05rem',
-							},
-						}}
-					>
-						{intro.text}
-					</Typography>
-				</Box>
-			</Grid>
-		</Grid>
+			<Box>
+				<Typography
+					component="h3"
+					sx={{
+						fontFamily: 'Montserrat',
+						fontWeight: 700,
+						color: darkBlue,
+						fontSize: { xs: '1.6rem', md: '2rem' },
+					}}
+				>
+					{intro.name}
+				</Typography>
+				<Typography
+					sx={{
+						mt: 2,
+						color: blue,
+						lineHeight: 1.9,
+						fontFamily: 'Space Mono',
+						fontSize: { xs: '0.9rem', md: '0.98rem' },
+					}}
+				>
+					{intro.text}
+				</Typography>
+			</Box>
+		</Box>
 	);
 }

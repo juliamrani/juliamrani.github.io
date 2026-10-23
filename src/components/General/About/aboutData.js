@@ -46,18 +46,9 @@ export const experiences = [
 	},
 ];
 
-// Rangées dans l'ordre : soft skills, data / IA, développement web, outils
+// Compétences regroupées par thème
 export const skills = [
-	'Teamwork',
-	'Adaptability',
-	'Organized',
-	'Autonomy',
-	'Python',
-	'Pandas',
-	'Scikit-learn',
-	'SQL',
-	'React',
-	'Angular',
-	'TypeScript',
-	'Git',
+	{ title: 'Data & AI', items: ['Python', 'Pandas', 'Scikit-learn'] },
+	{ title: 'Web & tools', items: ['React', 'Angular', 'TypeScript', 'SQL', 'Git'] },
+	{ title: 'Soft skills', items: ['Teamwork', 'Adaptability', 'Organized', 'Autonomy'] },
 ];

@@ -1,31 +1,55 @@
-import { Box, Grid, Chip } from '@mui/material';
-import { CardTitle } from '../common/CardTypography';
+import { Box, Typography, Chip } from '@mui/material';
+import { blue, teal } from '../common/theme';
+import Reveal from '../common/Reveal';
 import { skills } from './aboutData';
 
-// Liste des compétences sous forme de badges
+// Compétences regroupées par thème
 export default function Skills() {
 	return (
-		<Box mt={16}>
-			<CardTitle>Skills</CardTitle>
-
-			<Grid container spacing={2} mt={4}>
-				{skills.map((skill) => (
-					<Grid item key={skill}>
-						<Chip
-							label={skill}
-							sx={{
-								background: 'linear-gradient(135deg, #68a2a1, #164c77)',
-								color: '#fff',
-								fontWeight: 500,
-								fontFamily: 'Space Mono',
-								px: 1.5,
-								py: 2,
-								borderRadius: '20px',
-							}}
-						/>
-					</Grid>
-				))}
-			</Grid>
+		<Box
+			sx={{
+				mt: { xs: 8, md: 10 },
+				display: 'grid',
+				gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+				gap: { xs: 4, md: 5 },
+			}}
+		>
+			{skills.map((group, i) => (
+				<Reveal key={group.title} delay={i * 0.1}>
+					<Typography
+						sx={{
+							fontFamily: 'Space Mono',
+							fontSize: '0.8rem',
+							letterSpacing: '0.15em',
+							textTransform: 'uppercase',
+							color: teal,
+							pb: 1.5,
+							mb: 2,
+							borderBottom: '1px solid rgba(19, 61, 73, 0.2)',
+						}}
+					>
+						{group.title}
+					</Typography>
+					<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+						{group.items.map((skill) => (
+							<Chip
+								key={skill}
+								label={skill}
+								sx={{
+									fontFamily: 'Space Mono',
+									fontSize: '0.82rem',
+									color: blue,
+									background: 'rgba(255, 255, 255, 0.45)',
+									border: '1px solid rgba(255, 255, 255, 0.7)',
+									backdropFilter: 'blur(8px)',
+									transition: 'transform 0.25s ease, background 0.25s ease',
+									'&:hover': { transform: 'translateY(-2px)', background: 'rgba(255, 255, 255, 0.75)' },
+								}}
+							/>
+						))}
+					</Box>
+				</Reveal>
+			))}
 		</Box>
 	);
 }
