@@ -12,9 +12,9 @@ const GlassCard = ({ children }) => (
 		elevation={0}
 		sx={{
 			p: { xs: 3, sm: 5 },
-			background: "rgba(255, 255, 255, 0.7)",
+			background: "rgba(255, 255, 255, 0.45)",
 			backdropFilter: "blur(14px)",
-			border: "1px solid rgba(255, 255, 255, 0.8)",
+			border: "1px solid rgba(255, 255, 255, 0.6)",
 			borderRadius: "20px",
 			boxShadow: "0 30px 70px rgba(17, 49, 58, 0.25)",
 		}}

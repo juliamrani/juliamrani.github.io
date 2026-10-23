@@ -32,22 +32,38 @@ export default function ProjectSlider({ projects }) {
 	const viewportRef = useRef(null);
 	const dragging = useRef(false);
 	const [width, setWidth] = useState(0);
+	// Place libre à gauche du slider (marge de la page)
+	const [leftSpace, setLeftSpace] = useState(0);
 	const [current, setCurrent] = useState(0);
 	const [openIndex, setOpenIndex] = useState(null);
 	const reduceMotion = useReducedMotion();
 
 	// useLayoutEffect : la largeur est connue avant le premier affichage, les cartes n'apparaissent pas écrasées
 	useLayoutEffect(() => {
-		setWidth(viewportRef.current.getBoundingClientRect().width);
-		const observer = new ResizeObserver(([entry]) => setWidth(entry.contentRect.width));
+		const measure = () => {
+			const box = viewportRef.current.getBoundingClientRect();
+			setWidth(box.width);
+			setLeftSpace(box.left);
+		};
+		measure();
+		const observer = new ResizeObserver(measure);
 		observer.observe(viewportRef.current);
-		return () => observer.disconnect();
+		// Sur grand écran la largeur du slider ne change plus, mais sa marge à gauche si
+		window.addEventListener('resize', measure);
+		return () => {
+			observer.disconnect();
+			window.removeEventListener('resize', measure);
+		};
 	}, []);
 
 	const slideWidth = width * 0.8;
 	const step = slideWidth + GAP;
-	// La carte active est toujours centrée ; les flèches se placent dans l'espace libre de chaque côté
-	const offset = (width - slideWidth) / 2;
+	// S'il y a de la place à gauche (grand écran), la carte active est alignée avec les onglets
+	// et la flèche de gauche va dans la marge. Sinon, la carte est centrée pour garder les flèches visibles
+	const aligned = leftSpace >= 56;
+	const offset = aligned ? 0 : (width - slideWidth) / 2;
+	const leftArrow = aligned ? -Math.min(56, leftSpace / 2) : offset / 2;
+	const rightArrow = aligned ? slideWidth + 56 : width - offset / 2;
 	const last = projects.length - 1;
 
 	// Changer de projet referme le détail « See my contribution »
@@ -86,7 +102,7 @@ export default function ProjectSlider({ projects }) {
 					onClick={() => goTo(current - 1)}
 					disabled={current === 0}
 					disableRipple
-					sx={{ ...arrowSx, left: offset / 2, '&:hover': { ...arrowSx['&:hover'], transform: 'translate(calc(-50% - 4px), -50%)' } }}
+					sx={{ ...arrowSx, left: leftArrow, '&:hover': { ...arrowSx['&:hover'], transform: 'translate(calc(-50% - 4px), -50%)' } }}
 				>
 					<ArrowBackIosNewRoundedIcon />
 				</IconButton>
@@ -95,7 +111,7 @@ export default function ProjectSlider({ projects }) {
 					onClick={() => goTo(current + 1)}
 					disabled={current === last}
 					disableRipple
-					sx={{ ...arrowSx, left: width - offset / 2, '&:hover': { ...arrowSx['&:hover'], transform: 'translate(calc(-50% + 4px), -50%)' } }}
+					sx={{ ...arrowSx, left: rightArrow, '&:hover': { ...arrowSx['&:hover'], transform: 'translate(calc(-50% + 4px), -50%)' } }}
 				>
 					<ArrowForwardIosRoundedIcon />
 				</IconButton>
